@@ -1,5 +1,5 @@
 #PLEASE WRITE THE GITHUB URL BELOW!
-#https://github.com/yunyeosun
+#https://github.com/yunyeosun/oss
 
 import sys
 import pandas as pd
@@ -16,9 +16,9 @@ def load_dataset(dataset_path):
 	df = pd.read_csv(dataset_path) 
 	return df
 
-def dataset_stat(data_df):	
+def dataset_stat(dataset_df):	
 	#To-Do: Implement this function
-	n_feats = data_df.shape[1]
+	n_feats = dataset_df.drop(columns="target", axis=1).shape[1]
 	n_class1=len(dataset_df.loc[dataset_df['target'] == 1]) #data_df.groupby("target").size
 	n_class0=len(dataset_df.loc[dataset_df['target'] == 0])
 	return n_feats, n_class0, n_class1
